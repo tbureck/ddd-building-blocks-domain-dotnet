@@ -1,0 +1,12 @@
+# Build artifacts
+bin/
+obj/
+/packages/
+
+# IDE metadata files
+.idea/
+riderModule.iml
+/_ReSharper.Caches/
+
+# Version control
+.git/
