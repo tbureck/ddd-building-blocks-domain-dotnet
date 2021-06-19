@@ -2,12 +2,14 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <PackageVersion>0.1.0</PackageVersion>
+        <PackageVersion>0.2.0</PackageVersion>
         <Title>TBureck's DDD Building Blocks: Domain</Title>
         <Description>Basic classes to quickly bootstrap an application using the tactical Domain Driven Design pattern.</Description>
         <PackageLicenseUrl>https://choosealicense.com/licenses/mit/</PackageLicenseUrl>
         <LangVersion>8</LangVersion>
         <Nullable>enable</Nullable>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/tbureck/ddd-building-blocks-domain-dotnet</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
