@@ -17,6 +17,6 @@ namespace TBureck.BuildingBlocks.Domain
             Assert.Equal(1, raisedEventCount);
         }
 
-        private class DummyEvent { }
+        private class DummyEvent : IDomainEvent { }
     }
 }

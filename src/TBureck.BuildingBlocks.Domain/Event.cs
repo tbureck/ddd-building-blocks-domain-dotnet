@@ -6,7 +6,7 @@ namespace TBureck.BuildingBlocks.Domain
     /// the Raise method to publish an event from your domain.
     /// </summary>
     /// <typeparam name="T">The type of the event data</typeparam>
-    public static class Event<T>
+    public static class Event<T> where T : IDomainEvent
     {
         
         public delegate void SimpleEventHandler(T eventData);
