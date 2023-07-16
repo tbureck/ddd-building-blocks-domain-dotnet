@@ -21,6 +21,11 @@ namespace TBureck.BuildingBlocks.Domain
             this.Guid = guid;
         }
 
+        public override string ToString()
+        {
+            return $"{this.GetType().Name}:{Guid.ToString()}";
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is TypedGuidId other && Equals(other);

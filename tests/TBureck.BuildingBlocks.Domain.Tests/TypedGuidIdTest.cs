@@ -37,6 +37,15 @@ namespace TBureck.BuildingBlocks.Domain
         }
 
         [Fact]
+        public void ToString_ReturnsTypeNameAndGuid()
+        {
+            Guid guid = Guid.NewGuid();
+            EntityId entityId = new(guid);
+            
+            Assert.Equal(entityId.ToString(), $"EntityId:{guid.ToString()}");
+        }
+
+        [Fact]
         public void IEquatableEquals_SameGuid_ReturnsTrue()
         {
             Guid guid = Guid.NewGuid();
