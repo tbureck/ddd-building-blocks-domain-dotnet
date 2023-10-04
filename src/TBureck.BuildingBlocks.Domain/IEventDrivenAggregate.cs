@@ -23,8 +23,8 @@ namespace TBureck.BuildingBlocks.Domain
         /// <typeparam name="T">type of the event that has happened</typeparam>
         public static void Apply<T>(this IEventDrivenAggregate aggregate, T @event) where T : IDomainEvent
         {
-            aggregate.Changes.Add(@event);
             aggregate.Mutate(@event);
+            aggregate.Changes.Add(@event);
             Event<T>.Raise(@event);
         }
 

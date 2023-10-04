@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Xunit;
 
@@ -38,6 +39,19 @@ public class EventDrivenAggregateTest
     }
 
     [Fact]
+    public void Apply_DoesNotChangeWhenExceptionOccurs()
+    {
+        bool somethingHappened = false;
+        Event<FailingDummyEventHappened>.Raised += _ => somethingHappened = true;
+
+        ExampleEventDrivenAggregate actual = new();
+        Assert.Throws<Exception>(() => actual.SomethingFails());
+        
+        Assert.False(somethingHappened);
+        Assert.Empty(actual.Changes);
+    }
+
+    [Fact]
     public void Mutate_Mutates()
     {
         ExampleEventDrivenAggregate actual = new();
@@ -56,6 +70,8 @@ public class EventDrivenAggregateTest
     }
     
     public class DummyEventHappened : IDomainEvent { }
+    
+    public class FailingDummyEventHappened : IDomainEvent { }
 
     public class ExampleEventDrivenAggregate : IEventDrivenAggregate
     {
@@ -74,10 +90,21 @@ public class EventDrivenAggregateTest
             this.Apply(new DummyEventHappened());
         }
 
+        public void SomethingFails()
+        {
+            this.Apply(new FailingDummyEventHappened());
+        }
+
         [PublicAPI]
         public void When(DummyEventHappened @event)
         {
             SomethingHappened = true;
+        }
+
+        [PublicAPI]
+        public void When(FailingDummyEventHappened @event)
+        {
+            throw new Exception();
         }
     }
 }
