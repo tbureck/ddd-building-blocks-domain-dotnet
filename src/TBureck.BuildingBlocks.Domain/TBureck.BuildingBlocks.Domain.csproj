@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <PackageVersion>0.4.0</PackageVersion>
+        <PackageVersion>0.4.1</PackageVersion>
         <Title>TBureck's DDD Building Blocks: Domain</Title>
         <Description>Basic classes to quickly bootstrap an application using the tactical Domain Driven Design pattern.</Description>
         <PackageLicenseUrl>https://choosealicense.com/licenses/mit/</PackageLicenseUrl>
